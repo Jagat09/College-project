@@ -67,3 +67,14 @@ searchButton.addEventListener("click", () => {
     curSelectedNav?.classList.remove("active");
     curSelectedNav = null;
 });
+// Add event listener for keypress on the input field
+searchText.addEventListener("keypress", function(event) {
+  // Check if the pressed key is the Enter key (key code 13)
+  if (event.keyCode === 13) {
+    const query = searchText.value;
+    if (!query) return;
+    fetchNews(query);
+    curSelectedNav?.classList.remove("active");
+    curSelectedNav = null;
+  }
+});
